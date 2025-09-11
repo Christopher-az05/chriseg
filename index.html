@@ -121,413 +121,663 @@
 
 
     <style>
-        .apple-text {
-            background-color: rgb(227, 65, 64);
-            text-align: center;
-            color: white;
-            padding-bottom: 15px;
-            padding-top: 15px;
-            width: 500px;
-        }
+            .apple-text {
+                background-color: rgb(227, 65, 64);
+                text-align: center;
+                color: white;
+                padding-bottom: 15px;
+                padding-top: 15px;
+                width: 500px;
+            }
 
-        .body {
-            margin: 0px;
-        }
+            .body {
+                margin: 0px;
+            }
 
-        .shop-now {
-            cursor: pointer;
-        }
+            .shop-now {
+                cursor: pointer;
+            }
 
-        .shop-now:hover {
-            text-decoration: underline;
-        }
+            .shop-now:hover {
+                text-decoration: underline;
+            }
 
-        .input-button {
-            font-size: 20px;
-            width: 100%;
-        }
+            .thumbnail {
+                width: 100%; 
+            }
 
-        .thumbnail {
-            width: 100%; 
-        }
+            .video-stats {
+                color: rgb(65, 64, 62);
+                margin-top: 8px;
+            }
 
-        .video-stats {
-            color: rgb(65, 64, 62);
-            margin-top: 8px;
-        }
-
-        .channel-name {
-            color: rgb(65, 64, 62);
-            margin-top: 20px;
-        }
+            .channel-name {
+                color: rgb(65, 64, 62);
+                margin-top: 20px;
+            }
 
 
-        .profile-picture {
-            width: 40px;
-            height: 40px;
-            border-radius: 56px;
-           
+            .profile-picture {
+                width: 40px;
+                height: 40px;
+                border-radius: 56px;
             
-        }
+                
+            }
 
-        .video-description1 {
-            display: grid;
-            grid-template-columns: 50px 1fr;
-            vertical-align: top;
-        }
+            .video-description1 {
+                display: grid;
+                grid-template-columns: 50px 1fr;
+                vertical-align: top;
+            }
 
-        .video-title {  
-            font-weight: bold;
-            line-height: 20px;
-        }
+            .video-title {  
+                font-weight: bold;
+                line-height: 20px;
+            }
 
-        .video-grid {
+            .video-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 16px;
+                row-gap: 40px;
+                text-decoration: dotted;
+            }
+
+            @media (max-width: 750px) {
+                .video-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                
+            }
+
+            @media (min-width: 751px) and (max-width: 999px) {
+                .video-grid {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+            }
+
+            @media (min-width: 1000px) {
+                .video-grid {
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+            }
+
+            .header {
+                background-color: rgb(255, 255, 255);
+                height: 55px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 100;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: rgb(234, 233, 233);
+            
+            }
+
+            .left-section {
+                width: 130px;
+                min-width: 130px;
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .middle-section {
+                display: flex;
+                flex: 1;
+                margin-left: 70px;
+                margin-right: 40px;
+                max-width: 500px;
+                min-width: 120px;
+            }
+
+            .right-section {
+            width: 180px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+            }
+
+            .input-button {
+                font-size: 20px;
+                width: 100%;
+                padding-left: 10px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: rgb(186, 186, 186);
+                border-radius: 3px;
+                margin-left: 0.5px;
+            }
+
+            .search-button {
+                border-width: 1px;
+                border-style: solid;
+                border-color: rgb(186, 186, 186);
+                border-radius: 3px;
+                margin-left: -1.5px;
+                margin-right: 4px;
+                background-color: rgb(255, 255, 255);
+                position: relative;
+            }
+
+            .search-button .tooltip,
+            .voice-search-button .tooltip {
+                position: absolute;
+                background-color: rgb(118, 118, 117);
+                color: white;
+                margin-left: -10px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                padding-left: 4px;
+                padding-right: 4px;
+                font-size: 10px;
+                border-radius: 2px;
+                bottom: -20px;
+                opacity: 0;
+                transition: opacity 0.2s;
+                pointer-events: none;
+                white-space: nowrap;
+
+            }
+
+            .search-button:hover .tooltip,
+            .voice-search-button:hover .tooltip {
+                opacity: 1;
+            }
+            
+            .voice-search-button {
+                border-style: none;
+                background-color: rgb(255, 255, 255);
+                margin-left: 2px;
+            }
+
+            .menu-toggle, .yt-logo{
+                cursor: pointer;
+            }
+
+            .park {
+                height: 26px;
+                width: 30px;
+                border-radius: 30px;
+                cursor: pointer;
+            }
+
+            .upload-button {
+                cursor: pointer;
+            }
+
+            .notification-button {
+                cursor: pointer;
+                position: relative;
+
+            }
+
+            .notification-count {
+                position: absolute;
+                background-color: red;
+                color: white;
+                top: 2px;
+                right: 0;
+                font-family: Roboto, Arial;
+                font-size: 9px;
+                padding-left: 3px;
+                padding-right: 3px;
+                padding-top: 1px;
+                padding-bottom: 1px;
+                border-radius: 10px;
+
+            }
+
+            .apps-button {
+                cursor: pointer;
+            }
+
+            .page-sidebar {
+                background-color: rgb(255, 255, 255);
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                top: 55px;
+                width: 80px;
+                z-index: 100;
+            }
+
+            .sidebar-link {
+                height: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                cursor: pointer;
+
+            }
+
+            .sidebar-link:hover {
+                background-color: rgb(240, 240, 240);
+            }
+
+            .sidebar-link img {
+                height: 40px;
+                margin-bottom: 4px;
+            }
+
+            .sidebar-link div {
+                font-size: 10px;
+                font-weight: 600;
+                font-family: Roboto, Arial;
+            }
+
+            .thumb-div {
+                position: relative;
+                
+            }
+
+            .video-time {
+                background-color: black;
+                color: white;
+                position: absolute;
+                bottom: 8px;
+                right: 5px;
+                font-family: roboto, arial;
+                font-weight: 500;
+                padding-left: 3px;
+                padding-right: 3px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                border-radius: 2px;
+
+                /*This is a css comment*/
+            }
+        </style>
+
+        
+        
+        <br><br>
+        <br><br>
+        <!--This is an html comment-->
+        <div class="page-sidebar">
+            <div class="sidebar-link">
+                <img src="unedited-4959482_960_720.jpg">
+                <div>Home</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="Earwig-Damage-on-a-Dahlia-Flower-768x1152.jpg">
+                <div>Explore</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="stadtpark_bonn_by_jimmybondy_d2p8w5a-pre.jpg">
+                <div>Subscriptions</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="unedited-4959482_960_720.jpg">
+                <div>Originals</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="unedited-4959482_960_720.jpg">
+                <div>YouTube Music</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="unedited-4959482_960_720.jpg">
+                <div>Library</div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="left-section">
+                <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+                <span class="yt-logo" style="font-weight: 900;
+                    font-size: 17px;
+                    font-family: Arial, Helvetica, sans-serif;">
+                    <span class="play-button" onclick="toggleMenu()">▶️</span>YouTube
+                </span>
+            </div>
+            <div class="middle-section">
+                <input class="input-button" type="text" placeholder="Search" >
+                <button class="search-button">
+                    <span onclick="toggleMenu()">🔍</span>
+                    <div class="tooltip">Search</div>
+                </button>
+                <button class="voice-search-button">
+                    <span onclick="toggleMenu()">🎙️</span>
+                    <div class="tooltip">Search With Your Voice</div>
+                </button>
+            </div>
+            <div class="right-section">
+                <span class="upload-button">↕️</span>
+                <span class="apps-button">🍏</span>
+                <div class="notification-button">
+                    <span>🔔</span>
+                    <div class="notification-count">5</div>
+                </div>
+                <img class="park" src="park.jpg" alt="">
+            </div>
+        </div>
+        
+
+        
+
+
+        
+
+        <div class="video-grid">
+
+            <div class="video-preview">
+                <div class="thumb-div">
+                    <img src="tnbn.png" alt="" class="thumbnail">
+                    <div class="video-time"> 3:05:00</div>
+                </div>
+
+                <div class="video-description1">
+                    <div>
+                        <img src="headshot.jpg" alt="" class="profile-picture" >
+                    </div>
+                    <div>
+                        <div class="video-title">
+                            Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
+    
+                        </div>
+                        
+                        <div class="channel-name">
+                            Marques Browniee &#10003;
+                        </div>
+
+                        <div class="video-stats">
+                                3.4M views &#183; 6 months ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-preview">
+                <div class="thumb-div">
+                    <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
+                    <div class="video-time"> 9:05:30</div>
+                </div>
+
+                <div class="video-description1">
+                    <div>
+                        <img src="tnbn.png" alt="" class="profile-picture" >
+                    </div>
+                <div>
+                        <div class="video-title">
+                            Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
+                        </div>
+                    
+                        <div class="channel-name">
+                            Marques Browniee &#10003;
+                        </div>
+                        <div class="video-stats">
+                            3.4M views &#183; 6 months ago
+                        </div>
+                </div>
+                </div>
+        
+            </div>
+
+            <div class="video-preview">
+                <div class="thumb-div">
+                    <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
+                    <div class="video-time"> 05:00</div>
+                </div>
+
+                <div class="video-description1">
+                    <div>
+                        <img src="tnbn.png" alt="" class="profile-picture" >
+                    </div>
+                <div>
+                        <div class="video-title">
+                            Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
+                        </div>
+                    
+                        <div class="channel-name">
+                            Marques Browniee &#10003;
+                        </div>
+                        <div class="video-stats">
+                            3.4M views &#183; 6 months ago
+                        </div>
+                </div>
+                </div>
+        
+            </div>
+
+            <div class="video-preview">
+                <div class="thumb-div">
+                    <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
+                    <div class="video-time"> 35:00</div>
+                </div>
+
+                <div class="video-description1">
+                    <div>
+                        <img src="tnbn.png" alt="" class="profile-picture" >
+                    </div>
+                <div>
+                        <div class="video-title">
+                            Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
+                        </div>
+                    
+                        <div class="channel-name">
+                            Marques Browniee &#10003;
+                        </div>
+                        <div class="video-stats">
+                            3.4M views &#183; 6 months ago
+                        </div>
+                </div>
+                </div>
+        
+            </div>
+
+            <div class="video-preview">
+                <div class="thumb-div">
+                    <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
+                    <div class="video-time"> 3:05:00</div>
+                </div>
+
+                <div class="video-description1">
+                    <div>
+                        <img src="tnbn.png" alt="" class="profile-picture" >
+                    </div>
+                <div>
+                        <div class="video-title">
+                            Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
+                        </div>
+                    
+                        <div class="channel-name">
+                            Marques Browniee &#10003;
+                        </div>
+                        <div class="video-stats">
+                            3.4M views &#183; 6 months ago
+                        </div>
+                </div>
+                </div>
+        
+            </div>
+
+            <div class="video-preview">
+                <div class="thumb-div">
+                    <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
+                    <div class="video-time"> 3:05:00</div>
+                </div>
+
+                <div class="video-description1">
+                    <div>
+                        <img src="tnbn.png" alt="" class="profile-picture" >
+                    </div>
+                <div>
+                        <div class="video-title">
+                            Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
+                        </div>
+                    
+                        <div class="channel-name">
+                            Marques Browniee &#10003;
+                        </div>
+                        <div class="video-stats">
+                            3.4M views &#183; 6 months ago
+                        </div>
+                </div>
+                </div>
+        
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        
+        <div style="
+        display: grid;
+        grid-template-columns: 100px 100px;">
+            <div style="background-color: blue;"> Div 1</div>
+            <div style="background-color: aqua; "> Div 2 <p>Text</p></div>
+        </div>
+
+        <div style="
+        display: grid;
+        grid-template-columns: 100px 100px 200px;
+        margin-top: 20px;
+        margin-bottom: 50px;">
+            <div style="background-color: blue;"> Div 1 <p>Trial</p></div>
+            <div style="background-color: aqua;"> Div 2</div>
+            <div style="background-color: lightblue;">Div 3</div>
+        </div>
+
+        <br><br><br>
+
+
+        <div style="
+            margin-left: 20px;
+            margin-right: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             column-gap: 20px;
-            row-gap: 40px;
-        }
+            row-gap: 20px;">
+            
+                <div style="background-color: blue; height: 300px;"> Div 1</div>
+                <div style="background-color: aqua; height: 300px;"> Div 2</div>
+                <div style="background-color: lightblue; height: 300px;">Div 3</div>
+                <div style="background-color: aqua; height: 300px;"> Div 2</div>
+                <div style="background-color: lightblue; height: 300px;">Div 3</div>
+                <div style="background-color: blue; height: 300px;"> Div 1</div>
+        </div>
 
-        .header {
-            height: 55px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-           
-        }
+        <h1>
+            <u>
+                FLEXBOX
+            </u>
+        </h1>
 
-        .left-section {
-            background-color: antiquewhite;
-            width: 150px;
-        }
-
-        .middle-section {
-            background-color: lightblue;
-            flex: 1;
-            margin-left: 70px;
-            margin-right: 40px;
-            max-width: 500px;
-            min-width: 70px;
-        }
-
-        .right-section {
-            background-color: rgb(53, 162, 34);
-           width: 200px;
-        }
-    </style>
-
-    
-    
-    <br><br>
-    <br><br>
-
-    <div class="header">
-        <div class="left-section">YouTube</div>
-        <div class="middle-section"><input type="text" placeholder="Search" class="input-button"></div>
-        <div class="right-section">Right Section</div>
-    </div>
-    
-
-    
-
-
-    
-
-    <div class="video-grid">
-
-        <div class="video-preview">
-            <div>
-                <img src="tnbn.png" alt="" class="thumbnail">
+        <div style="
+        display: flex;
+        flex-direction: row;">
+            <div style="background-color: lightblue;">Div 1 Now <p>Text</p>
             </div>
+            <div style="background-color: lightpink;">Div 2 You</div>
+        </div>
 
-            <div class="video-description1">
-                <div class="profile-picture">
-                    <img src="headshot.jpg" alt="" class="profile-picture" >
-                </div>
-                <div>
-                    <div class="video-title">
-                        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
-                        
-                    </div>
-                    
-                    <div class="channel-name">
-                        Marques Browniee &#10003;
-                    </div>
-
-                    <div class="video-stats">
-                            3.4M views &#183; 6 months ago
-                    </div>
-                </div>
+        <div style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        height: 70px;">
+            <div style="background-color: lightblue; flex: 1;">Div 1 Now <p>Text</p>
+            </div>
+            <div style="background-color: lightpink; flex: 2;">Div 2 You</div>
+            <div style="background-color: lightblue;">Div 1 Now <p>Text</p>
             </div>
         </div>
 
-        <div class="video-preview">
-            <div>
-                <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
-            </div>
-
-            <div class="video-description1">
-                <div>
-                    <img src="tnbn.png" alt="" class="profile-picture" >
-                </div>
-               <div>
-                    <div class="video-title">
-                        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
-                    </div>
-                
-                    <div class="channel-name">
-                        Marques Browniee &#10003;
-                    </div>
-                    <div class="video-stats">
-                        3.4M views &#183; 6 months ago
-                    </div>
-               </div>
-            </div>
-    
+        <div style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        height: 70px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        justify-content: center;">
+            <div style="background-color: lightblue; width: 100px;">Div 1</div>
+            <div style="background-color: lightpink; width: 100px;">Div 2</div>
+            <div style="background-color: lightblue; width: 100px;">Div 3</div>
         </div>
 
-        <div class="video-preview">
-            <div>
-                <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
-            </div>
-
-            <div class="video-description1">
-                <div>
-                    <img src="tnbn.png" alt="" class="profile-picture" >
-                </div>
-               <div>
-                    <div class="video-title">
-                        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
-                    </div>
-                
-                    <div class="channel-name">
-                        Marques Browniee &#10003;
-                    </div>
-                    <div class="video-stats">
-                        3.4M views &#183; 6 months ago
-                    </div>
-               </div>
-            </div>
-    
+        <div style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        height: 70px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        justify-content: space-between;
+        align-items: center;">
+            <div style="background-color: lightblue; width: 100px;">Div 1</div>
+            <div style="background-color: lightpink; width: 100px;">Div 2</div>
+            <div style="background-color: lightblue; width: 100px;">Div 3</div>
         </div>
 
-        <div class="video-preview">
-            <div>
-                <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
-            </div>
-
-            <div class="video-description1">
-                <div>
-                    <img src="tnbn.png" alt="" class="profile-picture" >
-                </div>
-               <div>
-                    <div class="video-title">
-                        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
-                    </div>
-                
-                    <div class="channel-name">
-                        Marques Browniee &#10003;
-                    </div>
-                    <div class="video-stats">
-                        3.4M views &#183; 6 months ago
-                    </div>
-               </div>
-            </div>
-    
+        <div style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        height: 70px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        justify-content: space-between;
+        align-items: center;">
+            <div style="background-color: lightblue; width: 100px;">Div 1</div>
+            <div style="background-color: lightpink; width: 100px;">Div 2</div>
+            <div style="background-color: lightblue; width: 100px;">Div 3</div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
 
-        <div class="video-preview">
-            <div>
-                <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
-            </div>
+        <h1>
+            <u>CSS POSITIONING</u>
+        </h1>
 
-            <div class="video-description1">
-                <div>
-                    <img src="tnbn.png" alt="" class="profile-picture" >
-                </div>
-               <div>
-                    <div class="video-title">
-                        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
-                    </div>
-                
-                    <div class="channel-name">
-                        Marques Browniee &#10003;
-                    </div>
-                    <div class="video-stats">
-                        3.4M views &#183; 6 months ago
-                    </div>
-               </div>
-            </div>
-    
-        </div>
-
-        <div class="video-preview">
-            <div>
-                <img src="HIGHLIFE MEDLEY 2025 PT2.png" alt="" class="thumbnail">
-            </div>
-
-            <div class="video-description1">
-                <div>
-                    <img src="tnbn.png" alt="" class="profile-picture" >
-                </div>
-               <div>
-                    <div class="video-title">
-                        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Azumah!
-                    </div>
-                
-                    <div class="channel-name">
-                        Marques Browniee &#10003;
-                    </div>
-                    <div class="video-stats">
-                        3.4M views &#183; 6 months ago
-                    </div>
-               </div>
-            </div>
-    
-        </div>
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-    <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-    <div style="
-    display: grid;
-    grid-template-columns: 100px 100px;">
-        <div style="background-color: blue;"> Div 1</div>
-        <div style="background-color: aqua; "> Div 2 <p>Text</p></div>
-    </div>
-
-    <div style="
-    display: grid;
-    grid-template-columns: 100px 100px 200px;
-    margin-top: 20px;
-    margin-bottom: 50px;">
-        <div style="background-color: blue;"> Div 1 <p>Trial</p></div>
-        <div style="background-color: aqua;"> Div 2</div>
-        <div style="background-color: lightblue;">Div 3</div>
-    </div>
-
-    <br><br><br>
-
-
-    <div style="
-        margin-left: 20px;
-        margin-right: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 20px;
-        row-gap: 20px;">
         
-            <div style="background-color: blue; height: 300px;"> Div 1</div>
-            <div style="background-color: aqua; height: 300px;"> Div 2</div>
-            <div style="background-color: lightblue; height: 300px;">Div 3</div>
-            <div style="background-color: aqua; height: 300px;"> Div 2</div>
-            <div style="background-color: lightblue; height: 300px;">Div 3</div>
-            <div style="background-color: blue; height: 300px;"> Div 1</div>
-    </div>
-
-    <h1>
-        <u>
-            FLEXBOX
-        </u>
-    </h1>
-
-    <div style="
-      display: flex;
-      flex-direction: row;">
-        <div style="background-color: lightblue;">Div 1 Now <p>Text</p>
-        </div>
-        <div style="background-color: lightpink;">Div 2 You</div>
-    </div>
-
-    <div style="
-      display: flex;
-      flex-direction: row;
-      margin-top: 30px;
-      height: 70px;">
-        <div style="background-color: lightblue; flex: 1;">Div 1 Now <p>Text</p>
-        </div>
-        <div style="background-color: lightpink; flex: 2;">Div 2 You</div>
-        <div style="background-color: lightblue;">Div 1 Now <p>Text</p>
-        </div>
-    </div>
-
-    <div style="
-      display: flex;
-      flex-direction: row;
-      margin-top: 30px;
-      height: 70px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: black;
-      justify-content: end;">
-        <div style="background-color: lightblue; width: 100px;">Div 1</div>
-        <div style="background-color: lightpink; width: 100px;">Div 2</div>
-        <div style="background-color: lightblue; width: 100px;">Div 3</div>
-    </div>
-
-    <div style="
-      display: flex;
-      flex-direction: row;
-      margin-top: 30px;
-      height: 70px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: black;
-      justify-content: space-between;">
-        <div style="background-color: lightblue; width: 100px;">Div 1</div>
-        <div style="background-color: lightpink; width: 100px;">Div 2</div>
-        <div style="background-color: lightblue; width: 100px;">Div 3</div>
-    </div>
-
-    <div style="
-      display: flex;
-      flex-direction: row;
-      margin-top: 30px;
-      height: 70px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: black;
-      justify-content: space-between;
-      align-items: center;">
-        <div style="background-color: lightblue; width: 100px;">Div 1</div>
-        <div style="background-color: lightpink; width: 100px;">Div 2</div>
-        <div style="background-color: lightblue; width: 100px;">Div 3</div>
-    </div>
-</body>
-
+    </body>
 </html>
